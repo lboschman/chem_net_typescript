@@ -6,27 +6,32 @@ export class Reaction {
     reactants: Compound[];
     products: Compound[];
 
-    constructor(sigma: number, barrier: number, reactants: Compound[], products: Compound[]){
-        this.sigma = sigma;
-        this.barrier = barrier;
-        this.reactants = reactants;
-        this.products = products;
-    }
-
-    build_from_strings(sigma: number, barrier: number, reactants: string[], products: string[]): Reaction {
+    constructor(sigma: number, barrier: number, reactants: Compound[], products: Compound[]);
+    constructor(sigma: number, barrier: number, reactants: string[], products: string[]);
+    constructor(sigma: number, barrier: number, reactants: any, products: any){
         // Build a reaction from strings 
         let obj_reactants: Compound[];
         let obj_products: Compound[];
+        if (typeof(reactants[Number]) == Compound ) {
+            obj_reactants = reactants;
+        } else {
+            reactants.forEach(function (value) {
+                obj_reactants.push(new Compound(value));
+            })
+        }
 
-        reactants.forEach(function (value) {
-            obj_reactants.push(new Compound(value));
-        })
+        if (typeof(products) == Compound[]) {
+            obj_products = products;
+        } else {
+            products.forEach(function (value) {
+                obj_products.push(new Compound(value));
+            })
+        }
 
-        products.forEach(function (value) {
-            obj_products.push(new Compound(value));
-        })
-
-        return new Reaction(sigma, barrier, obj_reactants, obj_products);
+        this.sigma = sigma;
+        this.barrier = barrier;
+        this.reactants = obj_reactants;
+        this.products = obj_products;
     }
 
     rate(t_gas: number): number {
