@@ -13,6 +13,22 @@ export class Reaction {
         this.products = products;
     }
 
+    build_from_strings(sigma: number, barrier: number, reactants: string[], products: string[]): Reaction {
+        // Build a reaction from strings 
+        let obj_reactants: Compound[];
+        let obj_products: Compound[];
+
+        reactants.forEach(function (value) {
+            obj_reactants.push(new Compound(value));
+        })
+
+        products.forEach(function (value) {
+            obj_products.push(new Compound(value));
+        })
+
+        return new Reaction(sigma, barrier, obj_reactants, obj_products);
+    }
+
     rate(t_gas: number): number {
         // Calculate the reaction rate of this reaction, at temperature t_gas
         let reaction_rate: number = this.sigma * Math.exp(-t_gas / this.barrier);
