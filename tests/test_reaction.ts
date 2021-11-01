@@ -28,4 +28,17 @@ describe("Test the reaction mechanism", ()  => {
         });
     });
 
+    describe("Initialization of the reaction with strings should also be possible", () => {
+        let enzymation = new Reaction(1.0, 0.0, ['Enzyme', 'Substrate'], ['ES-complex'])
+        it("Reactants should be the same as given", () => {
+
+        });
+        it("Products should be the same as the one given", () => {
+
+        });
+        it("Concentrations of compounds should be set to zero", () => {
+
+        });
+    });
+
 });
