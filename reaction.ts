@@ -1,5 +1,9 @@
 import { Compound } from "./compound";
 
+type CompoundArray = Array<Compound>;
+
+
+
 export class Reaction {
     sigma: number;
     barrier: number;
@@ -7,12 +11,13 @@ export class Reaction {
     products: Compound[];
 
     constructor(sigma: number, barrier: number, reactants: Compound[], products: Compound[]);
+    constructor(sigma: number, barrier: number, reactants: CompoundArray, products: CompoundArray);
     constructor(sigma: number, barrier: number, reactants: string[], products: string[]);
     constructor(sigma: number, barrier: number, reactants: any, products: any){
         // Build a reaction from strings 
         let obj_reactants: Compound[];
         let obj_products: Compound[];
-        if (typeof(reactants[Number]) == Compound ) {
+        if (reactants instanceof Compound[]) {
             obj_reactants = reactants;
         } else {
             reactants.forEach(function (value) {
