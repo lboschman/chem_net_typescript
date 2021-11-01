@@ -1,8 +1,16 @@
 import { Compound } from "./compound";
 
-type CompoundArray = Array<Compound>;
+function check_if_compounds(compounds: Array<any>): boolean {
+    return compounds.every(function(value) {
+        return value instanceof Compound
+    })
+}
 
-
+function check_if_strings(compounds: Array<any>): boolean {
+    return compounds.every(function(value) {
+        return typeof(value) === "string"
+    })
+}
 
 export class Reaction {
     sigma: number;
@@ -11,23 +19,25 @@ export class Reaction {
     products: Compound[];
 
     constructor(sigma: number, barrier: number, reactants: Compound[], products: Compound[]);
-    constructor(sigma: number, barrier: number, reactants: CompoundArray, products: CompoundArray);
     constructor(sigma: number, barrier: number, reactants: string[], products: string[]);
     constructor(sigma: number, barrier: number, reactants: any, products: any){
         // Build a reaction from strings 
         let obj_reactants: Compound[];
         let obj_products: Compound[];
-        if (reactants instanceof Compound[]) {
+        
+        if (check_if_compounds(reactants)) {
             obj_reactants = reactants;
-        } else {
+        } else if (check_if_strings(reactants)) {
             reactants.forEach(function (value) {
                 obj_reactants.push(new Compound(value));
             })
+        } else {
+            throw new TypeError("Reactants should be all strings, or all Compounds!");
         }
 
-        if (typeof(products) == Compound[]) {
+        if (check_if_compounds(products)) {
             obj_products = products;
-        } else {
+        } else if (check_if_strings(products)) {
             products.forEach(function (value) {
                 obj_products.push(new Compound(value));
             })
