@@ -1,7 +1,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
-import { Reaction } from "../reaction";
-import { Compound } from "../compound";
+import { Reaction } from "../src/reaction";
+import { Compound } from "../src/compound";
 
 
 describe("Test the reaction mechanism", ()  => {
