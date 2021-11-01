@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { expect } from "chai";
-import { Compound } from "../compound";
+import { Compound } from "../src/compound";
 
 
 
