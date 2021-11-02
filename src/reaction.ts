@@ -27,21 +27,29 @@ export class Reaction {
         
         
         if (check_if_compounds(reactants)) {
+            // If reactants are already Compound objects, use those.
             obj_reactants = reactants;
         } else if (check_if_strings(reactants)) {
-            reactants.forEach(function (value) {
+            // If they are strings, initiate new Compounds
+            reactants.forEach(function (value: string) {
                 obj_reactants.push(new Compound(value));
             })
         } else {
+            // If reactants are neither, throw an error
             throw new TypeError("Reactants should be all strings, or all Compounds!");
         }
 
         if (check_if_compounds(products)) {
+            // If products are already Compound objects, use those
             obj_products = products;
         } else if (check_if_strings(products)) {
-            products.forEach(function (value) {
+            // If products are strings, initiate new compounds
+            products.forEach(function (value: string) {
                 obj_products.push(new Compound(value));
             })
+        } else {
+            // If reactants are neither, throw an error
+            throw new TypeError("Reaction products should be all strings, or all Compounds!");
         }
 
         this.sigma = sigma;
