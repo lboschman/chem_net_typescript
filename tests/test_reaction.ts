@@ -42,6 +42,14 @@ describe("Test the reaction mechanism", ()  => {
             expect(reactants[0]).to.equal('Enzyme');
             expect(reactants[1]).to.equal('Substrate');
         });
+
+        it("Reactants should all have abundance 0", () => {
+            let reactants: Compound[] = enzymation.reactants;
+            reactants.forEach( (value: Compound) => {
+                expect(value.abundance).to.equal(0);
+            });
+        });
+
         it("Products should be the same as the one given", () => {
 
         });
