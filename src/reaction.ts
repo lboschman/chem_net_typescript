@@ -78,7 +78,7 @@ export class Reaction {
 
     get_product_names(): string[] {
         // Get the names of al the products
-        let names: string[];
+        let names: string[] = [];
 
         this.products.forEach(function (value) {
                 names.push(value.name)

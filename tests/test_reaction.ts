@@ -50,8 +50,16 @@ describe("Test the reaction mechanism", ()  => {
             });
         });
 
+        it("Products should be of class Compound", () => {
+            let products: Compound[] = enzymation.products;
+            products.forEach( (value: Compound) => {
+                expect(value instanceof Compound).to.equal(true);
+            })
+        });
+        
         it("Products should be the same as the one given", () => {
-
+            let products: string[] = enzymation.get_product_names();
+            expect(products[0]).to.equal("ES-complex");
         });
         it("Concentrations of compounds should be set to zero", () => {
 
