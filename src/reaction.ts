@@ -66,7 +66,7 @@ export class Reaction {
 
     get_reactant_names(): string[] {
         // Get the names of all the reactants
-        let names: string[];
+        let names: string[] = [];
 
         this.reactants.forEach(function (value) {
                 names.push(value.name)
