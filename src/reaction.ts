@@ -22,8 +22,9 @@ export class Reaction {
     constructor(sigma: number, barrier: number, reactants: string[], products: string[]);
     constructor(sigma: number, barrier: number, reactants: any, products: any){
         // Build a reaction from strings 
-        let obj_reactants: Compound[];
-        let obj_products: Compound[];
+        let obj_reactants: Compound[] = [];
+        let obj_products: Compound[] = [];
+        
         
         if (check_if_compounds(reactants)) {
             obj_reactants = reactants;
