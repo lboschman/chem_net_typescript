@@ -29,7 +29,7 @@ describe("Test the reaction mechanism", ()  => {
     });
 
     describe("Initialization of the reaction with strings should also be possible", () => {
-        let enzymation = new Reaction(1.0, 0.0, ['Enzyme', 'Substrate'], ['ES-complex'])
+        let enzymation = new Reaction(1.0, 0.0, ["Enzyme", "Substrate"], ["ES-complex"])
         it("Reactants should be of class Compound", () => {
             let reactants: Compound[] = enzymation.reactants;
             reactants.forEach( (value: Compound) => {
@@ -39,8 +39,8 @@ describe("Test the reaction mechanism", ()  => {
         
         it("Reactants should be the same as given", () => {
             let reactants: string[] = enzymation.get_reactant_names();
-            expect(reactants[0]).to.equal('Enzyme');
-            expect(reactants[1]).to.equal('Substrate');
+            expect(reactants[0]).to.equal("Enzyme");
+            expect(reactants[1]).to.equal("Substrate");
         });
 
         it("Reactants should all have abundance 0", () => {
