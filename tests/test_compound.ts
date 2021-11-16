@@ -2,11 +2,9 @@ import { describe } from "mocha";
 import { expect } from "chai";
 import { Compound } from "../src/compound";
 
-
-
 describe("Test compounds", () => {
-    let carbon = new Compound("Carbon");
-            
+    const carbon = new Compound("Carbon");
+
     describe("Give a name", () => {
         it("Name should be the one given", () => {
             expect(carbon.name).to.equal("Carbon");
@@ -18,11 +16,11 @@ describe("Test compounds", () => {
             expect(carbon.abundance).to.equal(0);
         });
         it("Different abundance from default in constructor", () => {
-            let oxygen = new Compound("Oygen", 1.0);
+            const oxygen = new Compound("Oygen", 1.0);
             expect(oxygen.abundance).to.equal(1.0);
-        })
+        });
         it("Change abundance after initialization", () => {
-            let nitrogen = new Compound("Nitrogen", 1.2);
+            const nitrogen = new Compound("Nitrogen", 1.2);
             nitrogen.abundance = 14.4;
             expect(nitrogen.abundance).to.equal(14.4);
         });

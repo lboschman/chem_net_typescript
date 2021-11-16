@@ -18,14 +18,23 @@ export class Reaction {
     reactants: Compound[];
     products: Compound[];
 
-    constructor(sigma: number, barrier: number, reactants: Compound[], products: Compound[]);
-    constructor(sigma: number, barrier: number, reactants: string[], products: string[]);
-    constructor(sigma: number, barrier: number, reactants: any, products: any){
-        // Build a reaction from strings 
+    constructor(
+        sigma: number,
+        barrier: number,
+        reactants: Compound[],
+        products: Compound[]
+    );
+    constructor(
+        sigma: number,
+        barrier: number,
+        reactants: string[],
+        products: string[]
+    );
+    constructor(sigma: number, barrier: number, reactants: any, products: any) {
+        // Build a reaction from strings
         let obj_reactants: Compound[] = [];
         let obj_products: Compound[] = [];
-        
-        
+
         if (check_if_compounds(reactants)) {
             // If reactants are already Compound objects, use those.
             obj_reactants = reactants;
@@ -49,7 +58,9 @@ export class Reaction {
             })
         } else {
             // If reactants are neither, throw an error
-            throw new TypeError("Reaction products should be all strings, or all Compounds!");
+            throw new TypeError(
+                "Reaction products should be all strings, or all Compounds!"
+            )
         }
 
         this.sigma = sigma;
@@ -60,30 +71,28 @@ export class Reaction {
 
     rate(t_gas: number): number {
         // Calculate the reaction rate of this reaction, at temperature t_gas
-        let reaction_rate: number = this.sigma * Math.exp(-t_gas / this.barrier);
+        const reaction_rate: number = this.sigma * Math.exp(-t_gas / this.barrier);
         return reaction_rate;
     }
 
     get_reactant_names(): string[] {
         // Get the names of all the reactants
-        let names: string[] = [];
+        const names: string[] = [];
 
         this.reactants.forEach(function (value) {
-                names.push(value.name)
-            }
-        )
+            names.push(value.name);
+        });
 
         return names;
     }
 
     get_product_names(): string[] {
         // Get the names of al the products
-        let names: string[] = [];
+        const names: string[] = [];
 
         this.products.forEach(function (value) {
-                names.push(value.name)
-            }
-        )
+            names.push(value.name);
+        });
 
         return names;
     }

@@ -5,30 +5,33 @@ class Network {
     temperature: number;
     reactions: Reaction[];
 
-    constructor(temperature=300) {
+    constructor(temperature = 300) {
         this.reactions = [];
-        this.temperature
+        this.temperature = temperature;
     }
 
     get_compounds(): Compound[] {
-        let compound_list: Compound[];
+        let compound_list: Compound[] = [];
 
-        this.reactions.forEach( function (value) {
-                value.reactants.forEach( function (value) {add_if_new(value, compound_list)} );
-                value.products.forEach( function (value) {add_if_new(value, compound_list)} );
-            }
-        )
+        this.reactions.forEach(function (value) {
+            value.reactants.forEach(function (value) {
+                add_if_new(value, compound_list);
+            });
+            value.products.forEach(function (value) {
+                add_if_new(value, compound_list);
+            });
+        });
 
         return compound_list;
     }
 
     add_reaction(reaction: Reaction): void {
-        this.reactions.push(reaction)
+        this.reactions.push(reaction);
     }
 }
 
-let add_if_new = function (item, itemlist) {
+const add_if_new = function (item: any, itemlist: Array<any>) {
     if (!itemlist.includes(item)) {
-        itemlist.push(item)
+        itemlist.push(item);
     }
-}
+};
