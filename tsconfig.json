@@ -9,4 +9,9 @@
         "./node_modules/",
         "./dist/"
       ],
+    "typedocOptions": {
+      "entryPoints": ["src/"],
+      "entryPointStrategy": "expand",
+      "out": "docs"
+    }
 }
