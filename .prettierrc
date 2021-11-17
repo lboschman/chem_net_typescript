@@ -2,7 +2,7 @@
     "tabWidth": 4,
     "overrides": [
         {
-            "files": ["*.css", ".html"],
+            "files": ["*.css", "*.html", "*.vue"],
             "options": {
                 "tabWidth": 2
             }
