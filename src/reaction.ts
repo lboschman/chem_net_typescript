@@ -1,15 +1,15 @@
 import { Compound } from "./compound";
 
 function check_if_compounds(compounds: Array<any>): boolean {
-    return compounds.every(function(value) {
-        return value instanceof Compound
-    })
+    return compounds.every(function (value) {
+        return value instanceof Compound;
+    });
 }
 
 function check_if_strings(compounds: Array<any>): boolean {
-    return compounds.every(function(value) {
-        return typeof(value) === "string"
-    })
+    return compounds.every(function (value) {
+        return typeof value === "string";
+    });
 }
 
 export class Reaction {
@@ -42,10 +42,12 @@ export class Reaction {
             // If they are strings, initiate new Compounds
             reactants.forEach(function (value: string) {
                 obj_reactants.push(new Compound(value));
-            })
+            });
         } else {
             // If reactants are neither, throw an error
-            throw new TypeError("Reactants should be all strings, or all Compounds!");
+            throw new TypeError(
+                "Reactants should be all strings, or all Compounds!"
+            );
         }
 
         if (check_if_compounds(products)) {
@@ -55,12 +57,12 @@ export class Reaction {
             // If products are strings, initiate new compounds
             products.forEach(function (value: string) {
                 obj_products.push(new Compound(value));
-            })
+            });
         } else {
             // If reactants are neither, throw an error
             throw new TypeError(
                 "Reaction products should be all strings, or all Compounds!"
-            )
+            );
         }
 
         this.sigma = sigma;
@@ -71,7 +73,8 @@ export class Reaction {
 
     rate(t_gas: number): number {
         // Calculate the reaction rate of this reaction, at temperature t_gas
-        const reaction_rate: number = this.sigma * Math.exp(-t_gas / this.barrier);
+        const reaction_rate: number =
+            this.sigma * Math.exp(-t_gas / this.barrier);
         return reaction_rate;
     }
 
