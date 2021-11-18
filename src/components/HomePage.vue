@@ -1,22 +1,12 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
+    <h1>Is it me you're looking for???</h1>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-@Options({
-    props: {
-        message: String
-    },
-})
-
-export default class HomePage extends Vue {
-    message!: string;
-};
+import { Vue } from "vue-class-component";
+export default class HomePage extends Vue {}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
