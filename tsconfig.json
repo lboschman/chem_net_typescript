@@ -26,10 +26,10 @@
         "tests/**/*.tsx"
     ],
     "exclude": ["node_modules", "docs"],
-    
+
     "typedocOptions": {
         "entryPoints": ["src/"],
         "entryPointStrategy": "expand",
         "out": "docs"
-      }
+    }
 }
