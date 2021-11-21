@@ -12,7 +12,7 @@
         <input type="text" id="new-compound-name" name="new-compound-name">
         <input type="button" name="submit-compound" value="Submit!" v-on:click="add_compound('new-compound-name')">
         <ul id="example">
-            <li v-for="compound in items" :key="compound.message">
+            <li v-for="compound in items" :key="compound.id">
                 {{compound.text}}
             </li>
         </ul>
