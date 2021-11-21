@@ -1,18 +1,24 @@
 <template>
     <div class="compound-list">
-    <h1> Compounds that can react! </h1>
-    <label for="new-compound">Compound name: </label>
-    <div v-html="render_names()"/>
-    <!-- </div> -->
-    <!-- <div v-for="comp in compound_list">
-        <h3>{{comp.text}}</h3>
-    </div> -->
+        <h1> Compounds that can react! </h1>
+        <label for="new-compound">Compound name: </label>
+        <div v-html="render_names()"/>
+        <!-- </div> -->
+        <!-- <div v-for="comp in compound_list">
+            <h3>{{comp.text}}</h3>
+        </div> -->
 
-    <!-- <input type="text" id="new-compound-name" name="new-compound-name" v-model="compound_name"> -->
-    <input type="text" id="new-compound-name" name="new-compound-name">
-    <input type="button" name="submit-compound" value="Submit!" v-on:click="add_compound('new-compound-name')"> -->
+        <!-- <input type="text" id="new-compound-name" name="new-compound-name" v-model="compound_name"> -->
+        <input type="text" id="new-compound-name" name="new-compound-name">
+        <input type="button" name="submit-compound" value="Submit!" v-on:click="add_compound('new-compound-name')">
+        <ul id="example">
+            <li v-for="compound in items" :key="compound.message">
+                {{compound.text}}
+            </li>
+        </ul>
 
     </div>
+
 </template>
 
 <script lang="ts">
@@ -45,7 +51,7 @@ export default class CompoundPage extends Vue {
     }
 
     data() {
-        return {'compound_list': [
+        return {'items': [
             {"id": 0, "text": "Enzyme"},
             {"id": 1, "text": "Substrate"},
             {"id": 2, "text": "ES-complex"},
