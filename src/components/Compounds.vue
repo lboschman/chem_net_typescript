@@ -1,80 +1,52 @@
 <template>
-    <div class="compound-list">
-        <h1> Compounds that can react! </h1>
-        <label for="new-compound">Compound name: </label>
-        <div v-html="render_names()"/>
-        <!-- </div> -->
-        <!-- <div v-for="comp in compound_list">
-            <h3>{{comp.text}}</h3>
-        </div> -->
+  <div id="compounds">
+    <h1>Compounds</h1>
 
-        <!-- <input type="text" id="new-compound-name" name="new-compound-name" v-model="compound_name"> -->
-        <input type="text" id="new-compound-name" name="new-compound-name">
-        <input type="button" name="submit-compound" value="Submit!" v-on:click="add_compound('new-compound-name')">
-        <ul id="example">
-            <li v-for="compound in items" :key="compound.id">
-                {{compound.text}}
-            </li>
-        </ul>
-
+    <div id="new-compound">
+      <form @submit="add_compound">
+        <label>New Compound</label>
+        <input
+          v-model="new_compound"
+          type="text"
+          name="new_compound"
+          autocomplete="off"
+        />
+        <button>Add Compound!</button>
+      </form>
     </div>
 
+    <div id="compound-list">
+      <ul>
+        <li v-for="compound in compounds" v-bind:key="compound.name">
+          <span> {{ compound.name }}, [{{ compound.abundance }}] </span>
+        </li>
+      </ul>
+      <h4 v-if="compounds.length === 0">No compounds yet</h4>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { defineComponent } from "vue";
 import { Compound } from "../compound";
 
+export default defineComponent({
+  name: "CompoundPage",
 
+  data() {
+    return {
+      names: ["Alice", "Bob", "Caroline", "Dick"],
+      compounds: [] as Array<Compound>,
+      new_compound: "",
+    };
+  },
 
-export default class CompoundPage extends Vue {
-    compounds: Compound[] = [];
-
-    names: string[] = ["Alice", "Bob", "Caroline", "Dick"]
-
-    add_compound (compound_name: string) {
-        const compound = new Compound(compound_name);
-        this.compounds.push(compound);
-
-    }
-
-    add_name (name: string) {
-        this.names.push(name);
-    }
-
-    get_compound_names(): string[] {
-        let names: string[] = [];
-        this.compounds.forEach(compound => {
-            names.push(compound.name)
-        });
-        return names;
-    }
-
-    data() {
-        return {'items': [
-            {"id": 0, "text": "Enzyme"},
-            {"id": 1, "text": "Substrate"},
-            {"id": 2, "text": "ES-complex"},
-            {"id": 3, "text": "Product"}
-        ]}
-    }
-
-    rendered_table() {
-        return "<p>Help!!!</p>";
-    }
-
-    render_names() {
-        let sentences: string[] = [];
-        this.names.forEach((value) => {
-            const sentence: string = "Hi, im am ".concat(value);
-            sentences.push(sentence);
-        })
-
-        let major_string: string = sentences.join("</li><li>");
-        major_string = "<ul><li>".concat(major_string, "</li></ul>")
-
-        return major_string;
-    }
-}
-
+  methods: {
+    add_compound(e: Event) {
+      e.preventDefault();
+      const compound = new Compound(this.new_compound);
+      this.compounds.push(compound);
+    },
+  },
+});
 </script>

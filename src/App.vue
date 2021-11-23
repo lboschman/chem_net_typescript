@@ -2,7 +2,7 @@
   <Navbar/>
   <h1>Hello!!!</h1>
   <HomePage/>
-  <compound-page/>
+  <CompoundPage/>
 </template>
 
 <script lang="ts">
