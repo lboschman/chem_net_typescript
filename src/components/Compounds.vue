@@ -35,7 +35,6 @@ export default defineComponent({
 
   data() {
     return {
-      names: ["Alice", "Bob", "Caroline", "Dick"],
       compounds: [] as Array<Compound>,
       new_compound: "",
     };
