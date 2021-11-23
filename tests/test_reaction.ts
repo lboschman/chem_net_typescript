@@ -1,7 +1,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
-import { Reaction } from "../src/reaction";
-import { Compound } from "../src/compound";
+import { Reaction } from "../src/chemical-engine/reaction";
+import { Compound } from "../src/chemical-engine/compound";
 
 describe("Test the reaction mechanism", () => {
     const carbon = new Compound("C");

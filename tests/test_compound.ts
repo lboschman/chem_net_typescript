@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { expect } from "chai";
-import { Compound } from "../src/compound";
+import { Compound } from "../src/chemical-engine/compound";
 
 describe("Test compounds", () => {
     const carbon = new Compound("Carbon");

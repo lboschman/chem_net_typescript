@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { Compound } from "../compound";
+import { Compound } from "../chemical-engine/compound";
 
 export default defineComponent({
   name: "CompoundPage",
