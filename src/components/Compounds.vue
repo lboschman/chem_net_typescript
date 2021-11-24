@@ -1,7 +1,7 @@
 <template>
   <div id="compounds">
     <h1>Compounds</h1>
-
+    <!-- First make  form to create new compounds -->
     <div id="new-compound">
       <form @submit="add_compound">
         <label>New Compound</label>
@@ -15,6 +15,7 @@
       </form>
     </div>
 
+    <!-- List all the existing compounds -->
     <div id="compound-list">
       <ul>
         <li v-for="compound in compounds" v-bind:key="compound.name">
