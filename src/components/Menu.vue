@@ -1,32 +1,31 @@
 <template>
-    <div class="navbar">
-        <ul class="menu">
-            <li><a href="#home">Home</a></li>
-        </ul>
-    </div>
+  <div class="navbar">
+    <ul class="menu">
+      <li><a href="#home">Home</a></li>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
 
-export default class Navbar extends Vue {};
+export default class Navbar extends Vue {}
 </script>
-
 
 <style scoped>
 ul.menu {
-  list-style-type: none;  
+  list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333333;;
+  background-color: #333333;
 }
 
 li {
   float: left;
 }
 
-ul.menu > li a{
+ul.menu > li a {
   display: block;
   color: #ffffff;
   text-align: center;
@@ -41,5 +40,4 @@ ul.menu > li:hover {
 .active {
   background-color: #0000ff;
 }
-
 </style>

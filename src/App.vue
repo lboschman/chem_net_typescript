@@ -1,8 +1,8 @@
 <template>
-  <Navbar/>
+  <Navbar />
   <h1>Hello!!!</h1>
-  <HomePage/>
-  <CompoundPage/>
+  <HomePage />
+  <CompoundPage />
 </template>
 
 <script lang="ts">
@@ -15,7 +15,7 @@ import CompoundPage from "./components/Compounds.vue";
   components: {
     HomePage,
     Navbar,
-    CompoundPage
+    CompoundPage,
   },
 })
 export default class App extends Vue {}
