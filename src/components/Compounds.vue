@@ -44,8 +44,18 @@ export default defineComponent({
   methods: {
     add_compound(e: Event) {
       e.preventDefault();
-      const compound = new Compound(this.new_compound);
-      this.compounds.push(compound);
+      const existing_compounds: string[] = this.compounds.map((c) => {
+        return c.name;
+      });
+      // Check if the compound already exists, and is not an empty string
+      // If not, add the new compound
+      if (
+        !existing_compounds.includes(this.new_compound) &&
+        !(this.new_compound === "")
+      ) {
+        const compound = new Compound(this.new_compound);
+        this.compounds.push(compound);
+      }
     },
   },
 });
