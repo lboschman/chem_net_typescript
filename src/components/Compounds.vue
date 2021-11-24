@@ -4,7 +4,7 @@
     <!-- First make  form to create new compounds -->
     <div id="new-compound">
       <form @submit="add_compound">
-        <label>New Compound</label>
+        <label>New Compound </label>
         <input
           v-model="new_compound"
           type="text"
@@ -60,3 +60,14 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+#compounds {
+  align-content: flex-start;
+}
+
+#compounds > h1 {
+  color: rgb(236, 116, 17);
+
+}
+</style>
