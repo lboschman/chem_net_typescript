@@ -14,17 +14,16 @@ export default defineComponent({
   setup() {
     const store = useStore();
     {
-      store.state.reactions, store.state.compounds
+      store.state.reactions, store.state.compounds;
     }
   },
 
   data() {
     return {
       compounds: this.$store.state.compounds as Array<Compound>,
-      reactions: this.$store.state.reactions as Array<Reaction>
+      reactions: this.$store.state.reactions as Array<Reaction>,
     };
-  }
-
+  },
 });
 </script>
 

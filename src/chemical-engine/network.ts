@@ -1,7 +1,7 @@
 import { Reaction } from "./reaction";
 import { Compound } from "./compound";
 
-class Network {
+export class Network {
     temperature: number;
     reactions: Reaction[];
 
@@ -30,7 +30,7 @@ class Network {
     }
 }
 
-const add_if_new = function (item: any, itemlist: Array<any>) {
+const add_if_new = function (item: Compound, itemlist: Array<Compound>) {
     if (!itemlist.includes(item)) {
         itemlist.push(item);
     }

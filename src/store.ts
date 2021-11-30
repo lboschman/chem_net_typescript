@@ -17,7 +17,7 @@ export const store = createStore<State>({
     state: {
         count: 0,
         compounds: [],
-        reactions: []
+        reactions: [],
     },
 
     mutations: {
