@@ -1,11 +1,13 @@
 import { InjectionKey } from "vue";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 import { Compound } from "./chemical-engine/compound";
+import { Reaction } from "./chemical-engine/reaction";
 
 // define your typings for the store state
 export interface State {
     count: number;
     compounds: Array<Compound>;
+    reactions: Array<Reaction>;
 }
 
 // define injection key
@@ -15,6 +17,7 @@ export const store = createStore<State>({
     state: {
         count: 0,
         compounds: [],
+        reactions: []
     },
 
     mutations: {
