@@ -11,7 +11,7 @@ class Network {
     }
 
     get_compounds(): Compound[] {
-        let compound_list: Compound[] = [];
+        const compound_list: Compound[] = [];
 
         this.reactions.forEach(function (value) {
             value.reactants.forEach(function (value) {

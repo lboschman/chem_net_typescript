@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import { store, key } from "./store"
+import { store, key } from "./store";
 import App from "./App.vue";
 
 const app = createApp(App);

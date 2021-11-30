@@ -5,7 +5,7 @@
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+        "lint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore --fix src",
         "format": "prettier .  --write",
         "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/**/*.ts'"
     },
