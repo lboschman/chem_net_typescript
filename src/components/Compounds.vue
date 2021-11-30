@@ -29,14 +29,20 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from "../store";
 import { Compound } from "../chemical-engine/compound";
 
 export default defineComponent({
   name: "CompoundPage",
 
+  setup() {
+    const store = useStore();
+    store.state.compounds;
+  },
+
   data() {
     return {
-      compounds: [] as Array<Compound>,
+      compounds: this.$store.state.compounds as Array<Compound>,
       new_compound: "",
     };
   },
@@ -44,18 +50,7 @@ export default defineComponent({
   methods: {
     add_compound(e: Event) {
       e.preventDefault();
-      const existing_compounds: string[] = this.compounds.map((c) => {
-        return c.name;
-      });
-      // Check if the compound already exists, and is not an empty string
-      // If not, add the new compound
-      if (
-        !existing_compounds.includes(this.new_compound) &&
-        !(this.new_compound === "")
-      ) {
-        const compound = new Compound(this.new_compound);
-        this.compounds.push(compound);
-      }
+      this.$store.commit("add_compound", this.new_compound);
     },
   },
 });
@@ -68,6 +63,5 @@ export default defineComponent({
 
 #compounds > h1 {
   color: rgb(236, 116, 17);
-
 }
 </style>
